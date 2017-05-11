@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Trainer',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 ]
 
 ROOT_URLCONF = 'PersoTrainer.urls'
@@ -76,13 +78,9 @@ WSGI_APPLICATION = 'PersoTrainer.wsgi.application'
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "persotrainer",
-        "USER": "TheKingNat",
-        "PASSWORD": "",
-        "HOST": "localhost",
-        "PORT": "",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -104,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+#Routing messages to the 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 

@@ -13,6 +13,22 @@
             <h1>{% block head %}{% endblock %}</h1>
             {% block content %}{% endblock %}
         </div>
+
+        {% block nav %}
+        <ul id="nav">
+            <li>{% block nav-home %}<a class="active" href="#home">Home</a>{% endblock %}</li>
+            <li>{% block nav-activities %}<a href="{% url 'Trainer:activities' %}">Activities</a>{% endblock %}</li>
+            <li>{% block nav-MyActivities %}<a href="{% url 'Trainer:MyActivities' %}">My Activities </a>{% endblock %}</li>
+            <li>{% block nav-chatRoom %}<a href="{% url 'Trainer:index' %}">Chat Room </a>{% endblock %}</li>
+
+            {% if user.is_authenticated %}
+            <li style="float:right"><a onclick="window.location.href='/logout/'">Logout</a></li>
+            {% else %}
+
+            {% endif %}
+
+          </ul>
+          {% endblock %}
     </div>
 </body>
 </html>

@@ -6,9 +6,12 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_protect
 from django.shortcuts import render_to_response
-from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
+from PersoTrainer import settings
+
+
 
 @csrf_protect
 def register(request):
@@ -42,7 +45,7 @@ def logout_page(request):
 @csrf_protect
 @login_required
 def home(request):
-    return render_to_response(
+     return render_to_response(
     'home.html',
     { 'user': request.user }
     )

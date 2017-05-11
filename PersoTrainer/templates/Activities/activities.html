@@ -1,0 +1,23 @@
+<!-- activities.html -->
+{% extends "base.html" %}
+{% block content %}
+
+
+{% block head %}Activities{% endblock %}
+
+{% for activity in activities %}
+
+<div id="activity_{{ activity.pk }}">
+  <P><a href="{% url 'Trainer:activity_detail' activity_pk=activity.pk %}">{{ activity.name }}</a></p>
+
+  <form method="POST" action = "url 'add_act' %">{% csrf_token %}
+    <input type="hidden" name="pk" value="{{activity.pk}}">
+    <button type="submit">Add activity</button>
+  </form>
+
+</div>
+
+{% empty %}
+  <P>No activities found</p>
+{% endfor %}
+{% endblock%}

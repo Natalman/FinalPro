@@ -1,7 +1,17 @@
 import re
+from .models import Activities
 from django import forms
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+
+
+
+# class activitiesForm(forms.ModelForm):
+#     class Meta:
+#         model = Activities
+#         fields = ('name', 'point', 'detail')
+
+
 
 class RegistrationForm(forms.Form):
 

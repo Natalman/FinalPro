@@ -17,6 +17,8 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from Trainer.views import *
 from django.contrib.auth import views
+from django.views.generic import RedirectView
+admin.autodiscover()
 
 
 urlpatterns = [
@@ -27,4 +29,5 @@ urlpatterns = [
     url(r'^register/success/$', register_success),
     url(r'^accounts/login/$', views.login, name = 'login'),
     url(r'^logout/$', logout_page),
+    url(r'', include('Trainer.urls', namespace= 'Trainer')),      
 ]

@@ -1,0 +1,13 @@
+<!-- detail of an activity -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 id='activity_detail_title'>Activity Detail</h2>
+
+<p id="activity_name"> Name: {{ activity.name }}</p>
+<P><span id="activity_detail"> Detail: {{ activity.detail }}</span></p>
+<p><span id="activity_point"> Point: {{ activity.point }}</span></p>
+
+{% endblock %}

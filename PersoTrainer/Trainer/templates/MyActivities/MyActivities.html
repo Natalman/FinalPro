@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% block head %}{{user.username}}'s Activities{% endblock %}
+
+{% for activity in Myact %}
+
+<div id="activity_{{ activity.pk }}">
+  <P><a>{{ activity.name }}: {{ activity.detail }} and Point {{ activity.point }}</a></P>
+
+
+
+</div>
+
+{% empty %}
+  <P>No activities found</p>
+{% endfor %}
+{% endblock%}
